@@ -1,0 +1,29 @@
+﻿
+<script type="text/javascript">
+    function checkMultiples() {
+        var input = $("#txtInput").val();
+        $.ajax({
+            type: "GET",
+            url: '../api/values',
+            data: { value: input },
+            dataType: "json",
+            success: function (result) {
+                alert(result.Data.res);
+            },
+            error: function () {
+                alert("Ocorreu um erro");
+            }
+
+        });
+    }
+</script>
+
+<h1>Múltiplos 11</h1>
+<form>
+    <div class="row">
+        <textarea rows="32" id="txtInput" cols="20"></textarea>
+    </div>
+    <div class="row">
+        <input type="button" id="btnSubmit" value="Check Multiples 11" onclick="checkMultiples()" />
+    </div>
+</form>
